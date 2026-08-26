@@ -37,8 +37,6 @@ export class D1ControlRoomRepository {
       this.db.prepare("DELETE FROM files WHERE workspace_id = ?").bind(id),
       this.db.prepare("DELETE FROM copilot_runs WHERE workspace_id = ?").bind(id),
       this.db.prepare("DELETE FROM audit_events WHERE workspace_id = ?").bind(id),
-    ]);
-    await this.db.batch([
       this.db.prepare("UPDATE workspaces SET reset_count = reset_count + 1, expires_at = ? WHERE id = ?").bind(new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), id),
       ...this.seedStatements(id, seed),
     ]);
