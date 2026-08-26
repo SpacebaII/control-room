@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "control-room-pmo",
+  "workers_dev": true,
+  "preview_urls": false,
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-08-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/auth/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "control-room-db",
+      "database_id": "507927ab-68d7-49db-a9b0-c2aa971c6ae2",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "AI_MODE": "demo",
+    "OPENAI_MODEL": "gpt-5-nano",
+    "APP_ORIGIN": "https://control-room-pmo.spacebaii-portfolio.workers.dev"
+  },
+  "triggers": { "crons": ["17 3 * * *"] },
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "head_sampling_rate": 1 },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+  }
+}

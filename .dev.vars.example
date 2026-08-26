@@ -1,0 +1,5 @@
+SESSION_SIGNING_SECRET=generate-a-long-random-value
+GITHUB_CLIENT_ID=github-oauth-client-id
+GITHUB_CLIENT_SECRET=github-oauth-client-secret
+GITHUB_ALLOWED_LOGIN=your-github-login
+OPENAI_API_KEY=optional-owner-only-key

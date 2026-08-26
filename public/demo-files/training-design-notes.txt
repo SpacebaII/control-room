@@ -1,0 +1,31 @@
+HORIZON SERVICE GROUP (FICTIONAL)
+Mountain West Regional Launch / Training Design Notes
+Version 2.3 / August 25, 2026 / Owner: Simone Reed
+
+WORKING POSITION
+
+The operating model remains viable, but training materials cannot be frozen until the dispatcher pilot decision is recorded. The second supervisor cohort has been approved and should remain in the plan.
+
+DESIGN DECISIONS
+
+1. Use role practice built around real dispatch exceptions, not a feature tour.
+2. Separate supervisor escalation training from dispatcher workflow training.
+3. Treat offline reconciliation as a temporary control only if the sponsor approves the pilot extension.
+4. Require each supervisor to complete one schedule recovery scenario and one customer escalation scenario.
+
+OPEN WORK
+
+- Simone Reed: revise job aid references after the pilot decision / due August 28.
+- Marcus Bell: confirm operations examples for the Denver opening week / due August 27.
+- Priya Shah: provide the approved offline behavior statement / blocked by defect recovery.
+- Alex Morgan: confirm whether the September 8 facilitator checkpoint moves with the pilot extension.
+
+EVIDENCE EXPECTED AT READINESS GATE
+
+- Cohort attendance by role
+- Scenario assessment results
+- Supervisor escalation rehearsal record
+- Approved job aid version
+- Named remediation owners for incomplete learners
+
+This file is a synthetic demonstration artifact. No people, company, or program represented here are real.
