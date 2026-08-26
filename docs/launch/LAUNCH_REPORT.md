@@ -1,6 +1,6 @@
 # Launch report
 
-Status: pre-deployment
+Status: shipped and production-verified on August 26, 2026
 
 ## Product delivered
 
@@ -22,7 +22,18 @@ Status: pre-deployment
 - Serious and critical accessibility checks on desktop and mobile
 - Overflow checks at 390, 430, 768, 1024, and 1440 pixels
 - Client JavaScript below the 180 KB gzip target
+- Three consecutive local browser suites: 42/42 workflows passed
+- Production browser suite: 14/14 workflows passed
+- Production reset and first-read stress run: 20/20 repetitions passed
+- Route-wide console audit: no errors across every primary workspace
 
 ## Deployment record
 
-To be completed with Worker URL, D1 ID, GitHub repository, CI run, production workflow results, and security-header verification.
+- Application: https://control-room-pmo.spacebaii-portfolio.workers.dev
+- GitHub: https://github.com/SpacebaII/control-room
+- Worker version: `fec2688c-b371-4ca2-9996-aaa9196c910e`
+- D1 database: `control-room-db` (`507927ab-68d7-49db-a9b0-c2aa971c6ae2`)
+- Client JavaScript: 86.44 KB gzip
+- Security headers verified in the production browser suite
+- Public copilot verified to make no OpenAI request
+- Owner mode remains safely disabled until GitHub OAuth and OpenAI secrets are configured

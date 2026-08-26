@@ -1,5 +1,7 @@
 # Control Room
 
+[Live application](https://control-room-pmo.spacebaii-portfolio.workers.dev) · [Case study](docs/CASE_STUDY.md) · [Development journal](docs/DEVELOPMENT_JOURNAL.md)
+
 ![Control Room launch cover](public/launch-cover.png)
 
 Control Room is an operations PMO suite that demonstrates how a regional rollout can be managed from charter through execution, change control, reporting, and closeout. It is built around a fictional Horizon Service Group program with deliberately uneven schedules, budgets, risks, vendors, and team capacity.
@@ -69,7 +71,7 @@ No component library, chart framework, state-management framework, external font
 Requirements: Node.js 22+, npm, and a Cloudflare account only when deploying.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/control-room.git
+git clone https://github.com/SpacebaII/control-room.git
 cd control-room
 npm install
 copy .dev.vars.example .dev.vars
@@ -85,7 +87,7 @@ Open `http://127.0.0.1:5173`. Placeholder OAuth and OpenAI values are sufficient
 Register a GitHub OAuth application with callback URL:
 
 ```text
-https://YOUR_DEPLOYMENT/auth/github/callback
+https://control-room-pmo.spacebaii-portfolio.workers.dev/auth/github/callback
 ```
 
 Set these Worker secrets; never commit them:

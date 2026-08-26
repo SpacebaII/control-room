@@ -46,6 +46,6 @@ The product is useful as a PMO simulation, but the portfolio value is in the con
 - evidence that survives into reports and audits
 - accessibility and responsive behavior tested in the browser
 
-Repository: [GITHUB_URL]
+Repository: https://github.com/SpacebaII/control-room
 
-Live application: [DEPLOYMENT_URL]
+Live application: https://control-room-pmo.spacebaii-portfolio.workers.dev

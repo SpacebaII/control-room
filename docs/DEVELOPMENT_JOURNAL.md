@@ -32,9 +32,9 @@ The first selective-application browser test appeared to fail after the proposal
 
 ## Release hardening
 
-The first production browser run exposed a D1 consistency issue that local SQLite could not reproduce: a request could create a demo workspace and then read from a replica before every seeded project was visible. The repository is now created from a request-scoped D1 session anchored to the primary, which guarantees read-after-write consistency throughout each workflow.
+The first production browser run exposed a D1 consistency issue that local SQLite could not reproduce reliably. The repository is now created from a request-scoped D1 session anchored to the primary, which guarantees read-after-write consistency throughout each workflow, and workspace creation includes a bounded visibility check before returning.
 
-A production stress run then showed that the workspace row could still become observable before the complete actor and project seed was available. Workspace creation and reset now include a bounded visibility barrier that verifies both collections before returning control to the application.
+A 20-repeat production stress run isolated the remaining race to reset rather than creation. Reset deleted the old records in one D1 batch and inserted the seed in a second; a concurrent request could observe the valid workspace between those transactions with no actors or projects. Deletion, expiry update, and reseeding now execute in one atomic batch, followed by the same seed visibility check.
 
 An earlier deployment attempt also reused a generated Wrangler manifest containing the placeholder database ID. The remote schema had applied correctly, but Cloudflare rejected the Worker upload. Rebuilding the Vite Worker output before deployment corrected the binding without putting a broken release online.
 

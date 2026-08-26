@@ -18,7 +18,7 @@ The most useful development problems were not flashy ones. Spreadsheet rendering
 
 That is the part I wanted the portfolio project to show: not just that I can assemble a UI, but that I can make product, architecture, security, and operating decisions fit together.
 
-Repository: [GITHUB_URL]
-Live demo: [DEPLOYMENT_URL]
+Repository: https://github.com/SpacebaII/control-room
+Live demo: https://control-room-pmo.spacebaii-portfolio.workers.dev
 
 #projectmanagement #softwareengineering #operations #cloudflare #ai

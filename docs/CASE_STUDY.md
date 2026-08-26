@@ -45,7 +45,7 @@ The first visual system avoided familiar AI-dashboard tropes, but it overcorrect
 | Small UI labels failed AA | Axe reported exact foreground/background ratios | Darkened muted and amber tokens; fixed header hover state |
 | Copilot test navigated too soon | Proposed data was not reliably observable after click | Wait for `applied` before navigation |
 | Public demo could become shared state | Two visitors would otherwise mutate one seed | HMAC-signed workspace cookie plus `workspace_id` on every query |
-| First production load intermittently missed seeded actors | D1 could expose a new workspace before the full aggregate was observable | Request-scoped primary session plus a bounded post-seed visibility barrier |
+| Production reset intermittently exposed an empty workspace | Deletion and reseeding used two separate D1 batches | One atomic reset batch, request-scoped primary session, and a bounded post-seed visibility check |
 | First UI looked like a polished concept rather than daily software | Visual audit found presentation-scale headings, artificial numbering, and uniform panel treatment | Rebuilt information hierarchy around attention, movement, and role-specific action |
 | Live assistance could bypass accountability | Direct model mutation would be difficult to audit | Proposal-only provider contract and selected-change acceptance |
 
