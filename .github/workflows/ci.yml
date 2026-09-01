@@ -19,6 +19,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Prepare CI-only Worker bindings
+        run: cp .dev.vars.example .dev.vars
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

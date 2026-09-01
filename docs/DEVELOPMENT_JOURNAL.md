@@ -38,6 +38,8 @@ A 20-repeat production stress run isolated the remaining race to reset rather th
 
 An earlier deployment attempt also reused a generated Wrangler manifest containing the placeholder database ID. The remote schema had applied correctly, but Cloudflare rejected the Worker upload. Rebuilding the Vite Worker output before deployment corrected the binding without putting a broken release online.
 
+The first clean GitHub browser run exposed two assumptions hidden by the developer machine. The Worker started without the ignored `.dev.vars` file, leaving the demo-session HMAC key empty, and two assertions embedded the original launch date even though seed timestamps are relative. CI now copies the explicitly non-secret example bindings before local startup, and schedule assertions compare record versions plus the actual seven-day forecast delta instead of a calendar label.
+
 ## Quality position
 
 The repository maintains domain tests, application workflow tests, two-session isolation, browser acceptance coverage, accessibility checks, responsive overflow checks, security headers, stale-version conflicts, and proof that public copilot runs never contact OpenAI.

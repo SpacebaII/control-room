@@ -3,7 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 
 const testOrigin = process.env.CONTROL_ROOM_URL ?? "http://127.0.0.1:5174";
 const mutationHeaders = (actor: string) => ({ Origin: testOrigin, "X-Control-Room-Actor": actor });
-import type { Portfolio } from "../src/domain/model";
+import type { Portfolio, Project } from "../src/domain/model";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -14,10 +14,16 @@ test.beforeEach(async ({ page }) => {
 test("updates a critical milestone and persists the new aggregate version", async ({ page }) => {
   await page.getByRole("link", { name: /Field scheduling platform rollout/ }).click();
   await page.getByRole("link", { name: "plan", exact: true }).click();
-  await expect(page.getByText("Updated Aug 25 · version 7")).toBeVisible();
+  await expect(page.getByText(/Updated .* · version 7/)).toBeVisible();
+  const beforePortfolio = await (await page.request.get("/api/v1/portfolio")).json() as Portfolio;
+  const before = beforePortfolio.projects.find((project) => project.id === "platform") as Project;
+  const beforeForecast = before.milestones.find((item) => item.id === "plt-m2")!.forecastDate;
   await page.getByRole("button", { name: "Move Dispatcher pilot exit +7 days" }).click();
   await expect(page.getByText(/version 8/)).toBeVisible();
-  await expect(page.getByRole("time").filter({ hasText: "Sep 12" })).toBeVisible();
+  const afterPortfolio = await (await page.request.get("/api/v1/portfolio")).json() as Portfolio;
+  const after = afterPortfolio.projects.find((project) => project.id === "platform") as Project;
+  const afterForecast = after.milestones.find((item) => item.id === "plt-m2")!.forecastDate;
+  expect(Date.parse(afterForecast) - Date.parse(beforeForecast)).toBe(7 * 24 * 60 * 60 * 1000);
 });
 
 test("keeps visitor workspaces isolated", async ({ browser }) => {
@@ -76,7 +82,7 @@ test("mobile prioritizes communication and files without horizontal overflow", a
 
 test("updates budget forecast and resolves a recorded capacity conflict", async ({ page }) => {
   await page.goto("/projects/platform/budget");
-  await expect(page.getByText("Updated Aug 25 · version 7")).toBeVisible();
+  await expect(page.getByText(/Updated .* · version 7/)).toBeVisible();
   await page.getByRole("button", { name: "Add $10K" }).first().click();
   await expect(page.getByText(/version 8/)).toBeVisible();
   await page.getByRole("link", { name: "team", exact: true }).click();

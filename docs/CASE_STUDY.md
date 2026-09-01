@@ -46,6 +46,8 @@ The first visual system avoided familiar AI-dashboard tropes, but it overcorrect
 | Copilot test navigated too soon | Proposed data was not reliably observable after click | Wait for `applied` before navigation |
 | Public demo could become shared state | Two visitors would otherwise mutate one seed | HMAC-signed workspace cookie plus `workspace_id` on every query |
 | Production reset intermittently exposed an empty workspace | Deletion and reseeding used two separate D1 batches | One atomic reset batch, request-scoped primary session, and a bounded post-seed visibility check |
+| Clean CI could not create demo sessions | The ignored local secret file masked a missing CI-only HMAC binding | Start CI from documented non-secret example bindings; keep production secrets external |
+| Browser assertions expired after launch week | Relative seed dates were tested through hard-coded calendar labels | Assert the version transition and exact seven-day record delta |
 | First UI looked like a polished concept rather than daily software | Visual audit found presentation-scale headings, artificial numbering, and uniform panel treatment | Rebuilt information hierarchy around attention, movement, and role-specific action |
 | Live assistance could bypass accountability | Direct model mutation would be difficult to audit | Proposal-only provider contract and selected-change acceptance |
 
