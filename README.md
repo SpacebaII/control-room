@@ -8,6 +8,16 @@ Control Room is an operations PMO suite that demonstrates how a regional rollout
 
 The public application is safe to explore: every visitor receives an isolated 24-hour workspace, all people and records are synthetic, and communication adapters never contact Slack, Teams, or email. Public PM copilot workflows use deterministic rules and templates with no model charges.
 
+## Evidence at a glance
+
+| Concern | Implemented evidence |
+| --- | --- |
+| Connected controls | Schedule movement recalculates attributable health and flows into risks, decisions, forecasts, approvals, reporting, and audit history |
+| Concurrent use | Signed workspace isolation, workspace-scoped queries, optimistic record versions, and atomic reset/seeding |
+| Accountable AI | Deterministic public assistance and owner-only model proposals share a cited, proposal-only contract; acceptance remains a separate action |
+| Quality | Unit and browser coverage across permissions, schedule, risk, changes, forecasts, capacity, reporting, communications, files, and mobile behavior |
+| Operational readiness | D1 migrations, documented rollback, synthetic downloadable evidence, security controls, CI, and deployed production checks |
+
 ## Why it exists
 
 Most project-management demos stop at a clean task board. Control Room focuses on the difficult operating work around the board: attributable health, cross-project dependencies, forecast pressure, RAID aging, approval authority, evidence, reporting, and audit history.
